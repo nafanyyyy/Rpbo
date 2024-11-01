@@ -1,15 +1,16 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: demo
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: ${JDBC_USER}
+    url: ${JDBC_URL}
+    username: ${JDBC_USERNAME}
     password: ${JDBC_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
-
 jwt:
   secret: ${JWT_SECRET}
   expiration: ${JWT_EXPIRATION}
