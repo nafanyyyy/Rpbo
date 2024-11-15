@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/Device.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/DeviceLicense.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/LicenseHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/LicenseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/License.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/License.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/repo/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/License.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/License.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/Products.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/repo/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/repo/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserServiceImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

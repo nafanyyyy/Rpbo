@@ -20,11 +20,14 @@ public class DeviceLicense {
     @Id
     @GeneratedValue
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "license_id", referencedColumnName = "license_id")
     private License license;
+
     @ManyToOne
     @JoinColumn(name = "device_id", referencedColumnName = "id")
     private Device device;
+
     private Date activationDate;
 }

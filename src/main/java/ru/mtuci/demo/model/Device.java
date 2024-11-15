@@ -31,7 +31,7 @@ public class Device {
     private String name;
 
     @Column(unique = true)
-    private String mac;
+    private String mac_adress;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
