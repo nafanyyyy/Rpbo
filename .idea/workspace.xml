@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="" />
+    <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/Device.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/DeviceLicense.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/LicenseHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/LicenseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/License.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/License.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/repo/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/License.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/License.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/Products.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/repo/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/repo/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserServiceImpl.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +36,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -34,6 +57,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/matvejlarin/Downloads/demoMtuci-master/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -66,8 +90,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
       </set>
     </attachedChunks>
   </component>
@@ -82,6 +105,8 @@
       <workItem from="1728131275134" duration="1817000" />
       <workItem from="1728133379094" duration="1290000" />
       <workItem from="1730462704344" duration="5829000" />
+      <workItem from="1731673927549" duration="645000" />
+      <workItem from="1731674582781" duration="4511000" />
     </task>
     <servers />
   </component>
