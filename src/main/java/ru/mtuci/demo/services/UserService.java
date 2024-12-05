@@ -12,5 +12,5 @@ public interface UserService {
     User getById(Long id);
     User getByName(String name);
 
-    void create(String email, String name, String password) throws UserAlreadyCreate;
+    void create(String login, String name, String password) throws UserAlreadyCreate;
 }

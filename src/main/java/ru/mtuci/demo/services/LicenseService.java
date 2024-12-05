@@ -1,7 +1,7 @@
 package ru.mtuci.demo.services;
 
+import org.springframework.stereotype.Service;
 import ru.mtuci.demo.model.License;
-import ru.mtuci.demo.model.User;
 
 import java.util.List;
 
@@ -13,4 +13,6 @@ public interface LicenseService {
     License getById(Long id);
 
     License getByKey(String key);
+
+    License createLicense(Long productId, Long ownerId, Long licenseTypeId, License licenseParameters);
 }
