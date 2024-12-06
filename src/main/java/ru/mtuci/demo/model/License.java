@@ -19,6 +19,7 @@ import java.util.List;
 @Table(name="licenses")
 public class License {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)  // Добавлено для автогенерации идентификатора
     @Column(name="license_id")
     private Long license_id;
 

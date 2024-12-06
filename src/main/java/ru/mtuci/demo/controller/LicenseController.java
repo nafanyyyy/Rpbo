@@ -15,11 +15,17 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@RequestMapping("licenses")
+@RequestMapping("/licenses")
 @RestController
 public class LicenseController {
     private final LicenseService licenseService;
-    @PreAuthorize("hasAnyRole('ADMIN')")
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping
+    public List<License> getAll() {
+        return licenseService.getAll();
+    }
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public License createLicense(
             @RequestParam Long productId,
@@ -28,29 +34,21 @@ public class LicenseController {
             @RequestBody License licenseParameters) {
         return licenseService.createLicense(productId, ownerId, licenseTypeId, licenseParameters);
     }
-
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    @GetMapping
-    public List<License> getAll() {
-        return licenseService.getAll();
-    }
-    @PreAuthorize("hasAnyAuthority('modification')")
+    @PreAuthorize("hasAuthority('modification')")
     @PostMapping("/add")
     public void add(@RequestBody License license) {
         licenseService.add(license);
     }
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
     public License getById(@PathVariable("id") Long id) {
         return licenseService.getById(id);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/key/{key}")
     public License getByKey(@PathVariable("key") String key) {
         return licenseService.getByKey(key);
     }
-
-
 
 }

@@ -20,6 +20,8 @@ public class LicenseServiceImpl implements LicenseService {
     private final LicenseTypeService licenseTypeService;
     private final LicenseHistoryService licenseHistoryService;
 
+
+
     @Override
     public void add(License license) {
         licenseRepository.save(license);
