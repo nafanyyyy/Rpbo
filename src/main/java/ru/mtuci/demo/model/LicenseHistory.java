@@ -20,9 +20,11 @@ public class LicenseHistory {
     @Id
     @GeneratedValue
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "license_id", referencedColumnName = "license_id")
     private License license;
+
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;

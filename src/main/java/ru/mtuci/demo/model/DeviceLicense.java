@@ -1,11 +1,8 @@
 package ru.mtuci.demo.model;
+import java.time.LocalDate;
 import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +15,7 @@ import lombok.Setter;
 @Entity
 public class DeviceLicense {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
@@ -29,5 +26,11 @@ public class DeviceLicense {
     @JoinColumn(name = "device_id", referencedColumnName = "id")
     private Device device;
 
-    private Date activationDate;
+    private LocalDate activationDate;
+
+    public DeviceLicense(License license, Device device, LocalDate activationDate) {
+        this.license = license;
+        this.device = device;
+        this.activationDate = activationDate;
+    }
 }

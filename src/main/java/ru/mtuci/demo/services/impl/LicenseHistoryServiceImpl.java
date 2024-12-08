@@ -10,7 +10,7 @@ import ru.mtuci.demo.services.LicenseHistoryService;
 @Service
 public class LicenseHistoryServiceImpl implements LicenseHistoryService {
 
-    private final LicenseHistoryRepository licenseHistoryRepository;  // Инжектируем репозиторий для истории лицензий
+    private final LicenseHistoryRepository licenseHistoryRepository;
 
     public LicenseHistoryServiceImpl(LicenseHistoryRepository licenseHistoryRepository) {
         this.licenseHistoryRepository = licenseHistoryRepository;
@@ -18,15 +18,13 @@ public class LicenseHistoryServiceImpl implements LicenseHistoryService {
 
     @Override
     public void recordLicenseChange(License license, User user, String status, String description) {
-        // Создание и сохранение записи в историю лицензий
-        // Например, если у вас есть класс LicenseHistory, создайте его и запишите в базу
+
         LicenseHistory licenseHistory = new LicenseHistory();
         licenseHistory.setLicense(license);
         licenseHistory.setUser(user);
         licenseHistory.setStatus(status);
         licenseHistory.setDescription(description);
 
-        // Сохранение в репозитории
         licenseHistoryRepository.save(licenseHistory);
     }
 }

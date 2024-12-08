@@ -8,7 +8,7 @@ import ru.mtuci.demo.services.LicenseTypeService;
 @Service
 public class LicenseTypeServiceImpl implements LicenseTypeService {
 
-    private final LicenseTypeRepository licenseTypeRepository;  // Инжектируем репозиторий
+    private final LicenseTypeRepository licenseTypeRepository;
 
     public LicenseTypeServiceImpl(LicenseTypeRepository licenseTypeRepository) {
         this.licenseTypeRepository = licenseTypeRepository;

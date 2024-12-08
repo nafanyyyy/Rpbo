@@ -1,8 +1,13 @@
 package ru.mtuci.demo.services.impl;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import ru.mtuci.demo.configuration.JwtTokenProvider;
 import ru.mtuci.demo.exception.UserAlreadyCreate;
+import ru.mtuci.demo.exception.UserException;
 import ru.mtuci.demo.model.ApplicationRole;
 import ru.mtuci.demo.model.User;
 import ru.mtuci.demo.repo.UserRepository;
@@ -19,6 +24,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Override
     public List<User> getAll() {
@@ -43,6 +49,22 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByName(name).orElse(new User());
     }
 
+    @Override
+    public User getByLogin(String login)  {
+        return userRepository.findByLogin(login).orElse(new User());
+    }
+
+    @Override
+    public User getUserByJwt(HttpServletRequest httpRequest) {
+        String authorizationHeader = httpRequest.getHeader("Authorization");
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            throw new UserException("JWT токен отсутствует или некорректен");
+        }
+
+        String jwt = authorizationHeader.substring(7); // Убираем "Bearer "
+        String username = jwtTokenProvider.getUsername(jwt);
+        return getByLogin(username);
+    }
     @Override
     public void create(String login, String name, String password) throws UserAlreadyCreate {
         if (userRepository.findByLogin(login).isPresent()) throw new UserAlreadyCreate(login);
