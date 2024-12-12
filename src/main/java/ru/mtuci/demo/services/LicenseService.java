@@ -4,8 +4,8 @@ import org.springframework.http.ResponseEntity;
 import ru.mtuci.demo.model.Device;
 import ru.mtuci.demo.model.License;
 import ru.mtuci.demo.model.User;
-import ru.mtuci.demo.services.impl.ActivationRequest;
-import ru.mtuci.demo.services.impl.LicenseResponse;
+import ru.mtuci.demo.Request.ActivationRequest;
+import ru.mtuci.demo.Response.LicenseResponse;
 import ru.mtuci.demo.ticket.Ticket;
 
 import java.util.List;
@@ -24,4 +24,6 @@ public interface LicenseService {
     License getById(Long id);
 
     License getByKey(String key);
+
+    Ticket renewLicense(String license, User user);
 }

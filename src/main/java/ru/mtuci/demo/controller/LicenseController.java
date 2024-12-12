@@ -3,11 +3,10 @@ package ru.mtuci.demo.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import ru.mtuci.demo.Request.RenewalRequest;
 import ru.mtuci.demo.exception.DeviceNotFoundException;
 import ru.mtuci.demo.model.Device;
 import ru.mtuci.demo.model.License;
@@ -15,11 +14,9 @@ import ru.mtuci.demo.model.User;
 import ru.mtuci.demo.repo.DeviceRepository;
 import ru.mtuci.demo.services.LicenseService;
 import ru.mtuci.demo.services.UserService;
-import ru.mtuci.demo.services.impl.LicenseResponse;
+import ru.mtuci.demo.Response.LicenseResponse;
 import ru.mtuci.demo.ticket.Ticket;
-
 import java.util.List;
-import java.util.Map;
 
 @RequiredArgsConstructor
 @RequestMapping("/licenses")
@@ -51,6 +48,11 @@ public class LicenseController {
         licenseService.add(license);
     }
 
+    @PostMapping("/renew")
+    public ResponseEntity<LicenseResponse> renewLicense(@RequestBody RenewalRequest request, HttpServletRequest httpRequest) {
+        User authenticatedUser = getAuthenticatedUser(httpRequest);
+        return licenseService.renewLicense(request.getActivationCode(), authenticatedUser);
+    }
     @GetMapping("/info")
     public ResponseEntity<?> getLicenseInfo(@RequestParam String deviceInfo, HttpServletRequest httpRequest) {
         User authenticatedUser = getAuthenticatedUser(httpRequest);
@@ -65,6 +67,7 @@ public class LicenseController {
 
         return ResponseEntity.ok(ticket);
     }
+
     private User getAuthenticatedUser(HttpServletRequest httpRequest) {
         return userService.getUserByJwt(httpRequest);
     }

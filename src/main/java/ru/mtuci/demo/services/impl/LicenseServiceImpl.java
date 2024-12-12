@@ -3,22 +3,21 @@ package ru.mtuci.demo.services.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import ru.mtuci.demo.Request.ActivationRequest;
+import ru.mtuci.demo.Request.RenewalRequest;
+import ru.mtuci.demo.Response.LicenseResponse;
 import ru.mtuci.demo.exception.ActivationException;
 import ru.mtuci.demo.exception.DeviceNotFoundException;
 import ru.mtuci.demo.exception.LicenseNotFoundException;
-import ru.mtuci.demo.model.Device;
-import ru.mtuci.demo.model.DeviceLicense;
-import ru.mtuci.demo.model.License;
-import ru.mtuci.demo.model.User;
+import ru.mtuci.demo.exception.LicenseRenewalException;
+import ru.mtuci.demo.model.*;
 import ru.mtuci.demo.repo.DeviceLicenseRepository;
 import ru.mtuci.demo.repo.LicenseRepository;
 import ru.mtuci.demo.services.*;
 import ru.mtuci.demo.ticket.Ticket;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -53,6 +52,32 @@ public class LicenseServiceImpl implements LicenseService {
     @Override
     public License getByKey(String key) {
         return licenseRepository.findByKey(key).orElse(null);
+    }
+    @Override
+    public ResponseEntity<LicenseResponse> renewLicense(String key, User user) {
+        License license = licenseRepository.findByKey(key)
+                .orElseThrow(() -> new LicenseNotFoundException("Лицензия не найдена"));
+
+        if (license.getBlocked()) {
+            throw new ActivationException("Активация невозможна");
+        }
+
+        // Проверка срока действия лицензии
+        if (license.getEnding_date().isBefore(LocalDate.now())) {
+            throw new LicenseRenewalException("Лицензия истекла");
+        }
+
+        // Продление лицензии
+        LocalDate newEndingDate = license.getEnding_date().plusDays(license.getDuration());
+        license.setEnding_date(newEndingDate);
+        licenseRepository.save(license);
+
+        licenseHistoryService.recordLicenseChange(license, user, "Продлена", "Лицензия успешно продлена");
+
+        Ticket ticket = new Ticket();
+        ticket = ticket.generateRenewalTicket(license, user.getId());
+
+        return ticket;
     }
 
     @Override

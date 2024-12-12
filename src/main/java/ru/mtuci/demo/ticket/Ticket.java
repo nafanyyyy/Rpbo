@@ -36,6 +36,15 @@ public class Ticket {
         ticket.setLicenseTypeId(license.getLicenseType().getId());
         return ticket;
     }
+    public Ticket generateRenewalTicket(License license, Long id) {
+        Ticket ticket = new Ticket();
+        ticket.setServerDate(new Date());
+        ticket.setActivationDate(java.sql.Date.valueOf(license.getEnding_date().minusDays(license.getDuration())));
+        ticket.setExpirationDate(java.sql.Date.valueOf(license.getEnding_date()));
+        ticket.setLicenseBlocked(license.getBlocked());
+        return ticket;
+    }
+
 
     private String generateDigitalSignature(License license, Device device, Long userId) {
         String rawData = license.getKey() + device.getId() + userId + license.getEnding_date();

@@ -1,4 +1,4 @@
-package ru.mtuci.demo.authorization;
+package ru.mtuci.demo.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
