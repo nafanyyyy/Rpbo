@@ -1,6 +1,5 @@
 package ru.mtuci.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +19,7 @@ import java.util.List;
 @Table(name="licenses")
 public class License {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)  // Добавлено для автогенерации идентификатора
     @Column(name="license_id")
     private Long license_id;
 
@@ -34,10 +35,10 @@ public class License {
     private LicenseType licenseType;
 
     @Column(name="first_date_activate")
-    private Date first_date_activate;
+    private LocalDate first_date_activate;
 
     @Column(name="ending_date")
-    private Date ending_date;
+    private LocalDate ending_date;
 
     @Column(name="blocked")
     private Boolean blocked;
