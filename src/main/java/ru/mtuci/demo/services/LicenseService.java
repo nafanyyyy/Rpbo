@@ -1,6 +1,7 @@
 package ru.mtuci.demo.services;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import ru.mtuci.demo.Request.CreateLicensesRequest;
 import ru.mtuci.demo.Request.RenewalRequest;
 import ru.mtuci.demo.model.Device;
@@ -19,11 +20,12 @@ public interface LicenseService {
 
     ResponseEntity<LicenseResponse> createLicense(CreateLicensesRequest request);
 
+    ResponseEntity<LicenseResponse> getById(Long id);
+
     Ticket activateLicense(ActivationRequest request, User user);
 
     License getActiveLicensesForDevice(Device device, User user);
 
-    License getById(Long id);
 
     License getByKey(String key);
 

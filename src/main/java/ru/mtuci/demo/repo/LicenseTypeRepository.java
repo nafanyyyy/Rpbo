@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface LicenseTypeRepository extends JpaRepository<LicenseType, Long> {
     Optional<LicenseType> findById(Long id);
+    boolean existsByName(String name);
 }

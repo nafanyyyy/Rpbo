@@ -1,6 +1,5 @@
 package ru.mtuci.demo.authorization;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,7 +17,6 @@ import ru.mtuci.demo.Response.LoginResponse;
 import ru.mtuci.demo.configuration.JwtTokenProvider;
 import ru.mtuci.demo.model.UserDetailsImpl;
 import ru.mtuci.demo.services.UserService;
-import ru.mtuci.demo.exception.UserAlreadyCreate;
 
 
 @RequiredArgsConstructor
@@ -57,12 +55,7 @@ public class AuthController {
 
     @PostMapping("/reg")
     public ResponseEntity<?> register(@RequestBody RegRequest request) {
-        try {
             userService.create(request.getLogin(), request.getName(), request.getPassword());
             return ResponseEntity.ok("Successful");
-        } catch (UserAlreadyCreate ex) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(ex.getMessage());
-        }
     }
 }

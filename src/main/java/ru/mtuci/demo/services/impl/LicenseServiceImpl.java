@@ -44,8 +44,19 @@ public class LicenseServiceImpl implements LicenseService {
     }
 
     @Override
-    public License getById(Long id) {
-        return licenseRepository.findById(id).orElse(null);
+    public ResponseEntity<LicenseResponse> getById(Long id) {
+        License license = licenseRepository.findById(id)
+                .orElseThrow(() -> new LicenseNotFoundException("Лицензия с ID " + id + " не найдена"));
+
+        LicenseResponse response = new LicenseResponse(
+                license.getLicense_id(), license.getKey(),
+                license.getLicenseType().getId(), license.getBlocked(),
+                license.getDevice_count(), license.getOwner().getId(),
+                license.getDuration(), license.getDescription(),
+                license.getProduct().getId()
+        );
+
+        return ResponseEntity.ok(response);
     }
 
     @Override
@@ -58,7 +69,7 @@ public class LicenseServiceImpl implements LicenseService {
                 .orElseThrow(() -> new LicenseNotFoundException("Лицензия не найдена"));
 
         if (license.getBlocked()) {
-            throw new ActivationException("Активация невозможна");
+            throw new ActivationException("Активация невозможна, лицензия заблокирована");
         }
 
         if (license.getEnding_date().isBefore(LocalDate.now())) {

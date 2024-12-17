@@ -2,11 +2,9 @@ package ru.mtuci.demo.services.impl;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.mtuci.demo.configuration.JwtTokenProvider;
-import ru.mtuci.demo.exception.UserAlreadyCreate;
+import ru.mtuci.demo.exception.UserAlreadyCreateException;
 import ru.mtuci.demo.exception.UserException;
 import ru.mtuci.demo.model.ApplicationRole;
 import ru.mtuci.demo.model.User;
@@ -16,7 +14,6 @@ import ru.mtuci.demo.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -66,8 +63,8 @@ public class UserServiceImpl implements UserService {
         return getByLogin(username);
     }
     @Override
-    public void create(String login, String name, String password) throws UserAlreadyCreate {
-        if (userRepository.findByLogin(login).isPresent()) throw new UserAlreadyCreate(login);
+    public void create(String login, String name, String password) throws UserAlreadyCreateException {
+        if (userRepository.findByLogin(login).isPresent()) throw new UserAlreadyCreateException(login);
         var user = new User();
         user.setLogin(login);
         user.setName(name);

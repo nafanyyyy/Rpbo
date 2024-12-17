@@ -5,5 +5,6 @@ import ru.mtuci.demo.model.LicenseType;
 
 public interface LicenseTypeService {
     LicenseType getLicenseTypeById(Long id);
+    LicenseType createLicenseType(LicenseType licenseType);
 }
 

@@ -74,7 +74,7 @@ public class LicenseController {
         return userService.getUserByJwt(httpRequest);
     }
     @GetMapping("/{id}")
-    public License getById(@PathVariable("id") Long id) {
+    public ResponseEntity<LicenseResponse> getById(@PathVariable("id") Long id) {
         return licenseService.getById(id);
     }
 

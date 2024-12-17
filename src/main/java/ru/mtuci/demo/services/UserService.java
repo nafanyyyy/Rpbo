@@ -2,10 +2,9 @@ package ru.mtuci.demo.services;
 
 import jakarta.servlet.http.HttpServletRequest;
 import ru.mtuci.demo.model.User;
-import ru.mtuci.demo.exception.UserAlreadyCreate;
+import ru.mtuci.demo.exception.UserAlreadyCreateException;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface UserService {
     List<User> getAll();
@@ -14,5 +13,5 @@ public interface UserService {
     User getByName(String name);
     User getByLogin(String login);
     User getUserByJwt(HttpServletRequest httpRequest);
-    void create(String login, String name, String password) throws UserAlreadyCreate;
+    void create(String login, String name, String password) throws UserAlreadyCreateException;
 }
