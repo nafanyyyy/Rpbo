@@ -29,26 +29,17 @@ public class LicenseController {
     private final LicenseService licenseService;
     private final DeviceRepository deviceRepository;
     private final UserService userService;
-
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping
-    public List<License> getAll() {
+    @GetMapping("/all")
+    public List<LicenseResponse> getAll() {
         return licenseService.getAll();
     }
-
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<LicenseResponse>  createLicense(
             @RequestBody CreateLicensesRequest request) {
         return licenseService.createLicense(request);
     }
-
-    @PreAuthorize("hasAuthority('modification')")
-    @PostMapping("/add")
-    public void add(@RequestBody License license) {
-        licenseService.add(license);
-    }
-
     @PostMapping("/renew")
     public ResponseEntity<?> renewLicense(@RequestBody RenewalRequest request, HttpServletRequest httpRequest) {
         User user = getAuthenticatedUser(httpRequest);
@@ -58,30 +49,36 @@ public class LicenseController {
     @GetMapping("/info")
     public ResponseEntity<?> getLicenseInfo(@RequestParam String deviceInfo, HttpServletRequest httpRequest) {
         User authenticatedUser = getAuthenticatedUser(httpRequest);
-
         Device device = deviceRepository.findByMac(deviceInfo)
                 .orElseThrow(() -> new DeviceNotFoundException("Устройство не найдено"));
-
         License activeLicensesForDevice = licenseService.getActiveLicensesForDevice(device, authenticatedUser);
-
         Ticket ticket = new Ticket();
         ticket = ticket.generateTicket(activeLicensesForDevice, device, getAuthenticatedUser(httpRequest).getId());
-
         return ResponseEntity.ok(ticket);
     }
-
     private User getAuthenticatedUser(HttpServletRequest httpRequest) {
         return userService.getUserByJwt(httpRequest);
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
     public ResponseEntity<LicenseResponse> getById(@PathVariable("id") Long id) {
         return licenseService.getById(id);
     }
-
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/key/{key}")
-    public License getByKey(@PathVariable("key") String key) {
+    public ResponseEntity<LicenseResponse> getByKey(@PathVariable("key") String key) {
         return licenseService.getByKey(key);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
+    @PatchMapping("/block/{id}")
+    public ResponseEntity<String> blockLicense(@PathVariable("id") Long id) {
+        licenseService.blockLicense(id);
+        return ResponseEntity.ok("Лицензия успешно заблокирована");
+    }
+    @PreAuthorize("hasRole('ADMIN')")
+    @PatchMapping("/unblock/{id}")
+    public ResponseEntity<String> unblockLicense(@PathVariable("id") Long id) {
+        licenseService.unblockLicense(id);
+        return ResponseEntity.ok("Лицензия успешно разблокирована");
+    }
 }

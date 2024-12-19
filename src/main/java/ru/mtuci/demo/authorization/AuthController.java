@@ -23,11 +23,9 @@ import ru.mtuci.demo.services.UserService;
 @RequestMapping("/auth")
 @RestController
 public class AuthController {
-
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtProvider;
     private final UserService userService;
-
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
 
@@ -37,19 +35,12 @@ public class AuthController {
                         loginRequest.getPassword()
                 )
         );
-
-
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-
-
         String token = jwtProvider.createToken(userDetails.getUsername(), userDetails.getAuthorities());
-
-
         LoginResponse response = new LoginResponse(
                 userDetails.getUsername(),
                 token
         );
-
         return ResponseEntity.ok(response);
     }
 

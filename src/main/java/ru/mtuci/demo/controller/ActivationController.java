@@ -1,6 +1,8 @@
 package ru.mtuci.demo.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,19 +17,12 @@ import ru.mtuci.demo.services.LicenseService;
 import ru.mtuci.demo.services.UserService;
 import ru.mtuci.demo.Request.ActivationRequest;
 import ru.mtuci.demo.ticket.Ticket;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/activation")
 public class ActivationController {
-
     private final LicenseService licenseService;
     private final UserService userService;
-
-    public ActivationController(LicenseService licenseService, JwtTokenProvider jwtTokenProvider, UserService userService) {
-        this.licenseService = licenseService;
-        this.userService = userService;
-    }
-
     @PostMapping("/activate")
     public ResponseEntity<?> activateLicense(@RequestBody ActivationRequest request, HttpServletRequest httpRequest) {
         User user = userService.getUserByJwt(httpRequest);

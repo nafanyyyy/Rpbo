@@ -16,7 +16,7 @@ import java.util.List;
 public interface LicenseService {
     void add(License license);
 
-    List<License> getAll();
+    List<LicenseResponse> getAll();
 
     ResponseEntity<LicenseResponse> createLicense(CreateLicensesRequest request);
 
@@ -25,9 +25,9 @@ public interface LicenseService {
     Ticket activateLicense(ActivationRequest request, User user);
 
     License getActiveLicensesForDevice(Device device, User user);
-
-
-    License getByKey(String key);
+    void blockLicense(Long id);
+    void unblockLicense(Long id);
+    ResponseEntity<LicenseResponse> getByKey(String key);
 
     Ticket renewLicense(RenewalRequest request, User user);
 }

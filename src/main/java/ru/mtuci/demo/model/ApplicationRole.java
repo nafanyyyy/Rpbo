@@ -13,9 +13,7 @@ import java.util.stream.Collectors;
 public enum ApplicationRole {
     USER(Set.of(Permission.READ)),
     ADMIN(Set.of(Permission.READ, Permission.MODIFICATION));
-
     private final Set<Permission> permissions;
-
     public Set<GrantedAuthority> getGrantedAuthorities() {
         Set<GrantedAuthority> grantedAuthorities = permissions.stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.toString()))

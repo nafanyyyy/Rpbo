@@ -1,11 +1,7 @@
 package ru.mtuci.demo.model;
 import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,4 +27,8 @@ public class LicenseHistory {
     private String status;
     private Date changeDate;
     private String description;
+    @PrePersist
+    public void setChangeDate() {
+        this.changeDate = new Date();
+    }
 }

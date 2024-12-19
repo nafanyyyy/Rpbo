@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class RenewalRequest {
     private String activationCode;
+    private String deviceInfo;
 }

@@ -19,18 +19,13 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class JwtTokenProvider {
-
     @Value("${jwt.secret}")
     private String jwtSecret;
-
     @Value("${jwt.expiration}")
     private long jwtExpiration;
-
     private SecretKey getSigningKey() {
-
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
-
     public String createToken(String username, Set<GrantedAuthority> authorities) {
         return Jwts.builder()
                 .subject(username)
