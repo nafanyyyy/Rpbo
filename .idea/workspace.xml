@@ -4,65 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="task final">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Response/LicenseTypeResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Response/ProductResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Response/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/exception/LicenseTypeNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Request/RenewalRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Request/RenewalRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Response/LicenseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/Response/LicenseResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/authorization/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/authorization/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/configuration/JwtTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/configuration/JwtTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/configuration/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/configuration/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/ActivationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/ActivationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/LicenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/LicenseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/LicenseTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/LicenseTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/ApplicationRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/ApplicationRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/LicenseHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/model/LicenseHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/DeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/DeviceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/LicenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/LicenseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/LicenseTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/LicenseTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/DeviceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/DeviceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/LicenseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/LicenseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/LicenseTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/LicenseTypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/ticket/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/ticket/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/Request/RenewalRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/Request/RenewalRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/Response/LicenseResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/Response/LicenseResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/authorization/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/authorization/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/configuration/JwtTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/configuration/JwtTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/configuration/JwtTokenProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/configuration/JwtTokenProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/configuration/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/ActivationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/ActivationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/LicenseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/LicenseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/LicenseTypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/LicenseTypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/ApplicationRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/ApplicationRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/LicenseHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/model/LicenseHistory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/DeviceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/DeviceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/LicenseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/LicenseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/LicenseTypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/LicenseTypeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/DeviceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/DeviceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/LicenseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/LicenseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/LicenseTypeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/LicenseTypeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/ticket/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/ticket/Ticket.class" afterDir="false" />
-    </list>
+    <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="FINAL" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +123,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734096684905</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="FINAL">
+      <option name="closed" value="true" />
+      <created>1734595510753</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734595510753</updated>
+    </task>
+    <task id="LOCAL-00005" summary="FINAL">
+      <option name="closed" value="true" />
+      <created>1734595529591</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734595529591</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +163,7 @@
     <MESSAGE value="task5" />
     <MESSAGE value="task final demo" />
     <MESSAGE value="task final" />
-    <option name="LAST_COMMIT_MESSAGE" value="task final" />
+    <MESSAGE value="FINAL" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL" />
   </component>
 </project>

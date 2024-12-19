@@ -1,4 +1,4 @@
-package ru.mtuci.demo.authorization;
+package ru.mtuci.demo.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
