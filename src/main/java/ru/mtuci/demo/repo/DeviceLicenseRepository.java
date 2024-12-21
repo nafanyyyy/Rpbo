@@ -13,8 +13,5 @@ import java.util.Optional;
 @Repository
 public interface DeviceLicenseRepository extends JpaRepository<DeviceLicense, Long> {
     Optional<DeviceLicense> findById(Long id);
-    Optional<DeviceLicense> findByDevice_id(Long device_id);
-    Optional<DeviceLicense> findByDeviceAndLicense(Device device, License license);
-
     List<DeviceLicense> findAllByDeviceId(Long id);
 }

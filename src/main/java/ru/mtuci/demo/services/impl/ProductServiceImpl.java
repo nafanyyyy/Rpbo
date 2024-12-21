@@ -4,7 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.mtuci.demo.Request.ProductRequest;
 import ru.mtuci.demo.Response.ProductResponse;
+import ru.mtuci.demo.exception.LicenseNotFoundException;
 import ru.mtuci.demo.exception.ProductException;
+import ru.mtuci.demo.model.License;
 import ru.mtuci.demo.model.Products;
 import ru.mtuci.demo.repo.ProductRepository;
 import ru.mtuci.demo.services.ProductService;
@@ -48,5 +50,19 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Products getProductById(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Продукт не найден."));
+    }
+    @Override
+    public void blockProduct(Long id) {
+        Products products = productRepository.findById(id)
+                .orElseThrow(() -> new ProductException("Продукт с ID " + id + " не найден"));
+        products.setIsBlocked(true);
+        productRepository.save(products);
+    }
+    @Override
+    public void unblockProduct(Long id) {
+        Products products = productRepository.findById(id)
+                .orElseThrow(() -> new ProductException("Продукт с ID " + id + " не найден"));
+        products.setIsBlocked(false);
+        productRepository.save(products);
     }
 }

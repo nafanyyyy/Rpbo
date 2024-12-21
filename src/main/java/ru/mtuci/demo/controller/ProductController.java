@@ -34,4 +34,16 @@ public class ProductController {
         productService.deleteProduct(id);
         return ResponseEntity.ok("Продукт успешно удален");
     }
+    @PreAuthorize("hasRole('ADMIN')")
+    @PatchMapping("/block/{id}")
+    public ResponseEntity<String> blockProduct(@PathVariable("id") Long id) {
+        productService.blockProduct(id);
+        return ResponseEntity.ok("Продукт успешно заблокирован");
+    }
+    @PreAuthorize("hasRole('ADMIN')")
+    @PatchMapping("/unblock/{id}")
+    public ResponseEntity<String> unblockLicense(@PathVariable("id") Long id) {
+        productService.unblockProduct(id);
+        return ResponseEntity.ok("Продукт успешно разблокирован");
+    }
 }

@@ -14,13 +14,12 @@ import ru.mtuci.demo.ticket.Ticket;
 import java.util.List;
 
 public interface LicenseService {
-    void add(License license);
 
     List<LicenseResponse> getAll();
 
     LicenseResponse createLicense(CreateLicensesRequest request);
 
-    License getById(Long id);
+    LicenseResponse getById(Long id);
 
     Ticket activateLicense(ActivationRequest request, User user);
 

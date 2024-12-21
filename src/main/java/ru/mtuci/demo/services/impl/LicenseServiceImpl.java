@@ -1,7 +1,6 @@
 package ru.mtuci.demo.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.mtuci.demo.Request.ActivationRequest;
 import ru.mtuci.demo.Request.CreateLicensesRequest;
@@ -20,7 +19,6 @@ import ru.mtuci.demo.ticket.Ticket;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -34,11 +32,6 @@ public class LicenseServiceImpl implements LicenseService {
     private final LicenseHistoryService licenseHistoryService;
     private final DeviceService deviceService;
     private final DeviceLicenseRepository deviceLicenseRepository;
-
-    @Override
-    public void add(License license) {
-        licenseRepository.save(license);
-    }
 
     @Override
     public List<LicenseResponse> getAll() {
@@ -57,9 +50,17 @@ public class LicenseServiceImpl implements LicenseService {
                 .toList();
     }
     @Override
-    public License getById(Long id) {
-        return licenseRepository.findById(id)
+    public LicenseResponse getById(Long id) {
+        License license = licenseRepository.findById(id)
                 .orElseThrow(() -> new LicenseNotFoundException("Лицензия с ID " + id + " не найдена"));
+
+        return new LicenseResponse(
+                license.getLicense_id(), license.getKey(),
+                license.getLicenseType().getId(), license.getBlocked(),
+                license.getDevice_count(), license.getOwner().getId(),
+                license.getDuration(), license.getDescription(),
+                license.getProduct().getId()
+        );
     }
 
     @Override
@@ -80,7 +81,26 @@ public class LicenseServiceImpl implements LicenseService {
     public Ticket renewLicense(RenewalRequest request, User user) {
         License license = licenseRepository.findByKey(request.getActivationCode())
                 .orElseThrow(() -> new LicenseNotFoundException("Лицензия не найдена"));
+
+        if (license.getUser() == null || !license.getUser().getId().equals(user.getId())) {
+            throw new LicenseRenewalException("Лицензия была активирована другим пользователем, продление невозможно");
+        }
+
         Device device = deviceService.getDeviceByDeviceInfo(request.getDeviceInfo());
+
+        List<DeviceLicense> deviceLicenses = deviceLicenseRepository.findAllByDeviceId(device.getId());
+        boolean isDeviceLinked = false;
+        for (DeviceLicense deviceLicense : deviceLicenses) {
+            if (deviceLicense.getLicense().getLicense_id().equals(license.getLicense_id())) {
+                isDeviceLinked = true;
+                break;
+            }
+        }
+
+        if (!isDeviceLinked) {
+            throw new LicenseRenewalException("Указанное устройство не связано с этой лицензией");
+        }
+
         if (license.getBlocked()) {
             throw new ActivationException("Активация невозможна, лицензия заблокирована");
         }
@@ -94,6 +114,7 @@ public class LicenseServiceImpl implements LicenseService {
         licenseRepository.save(license);
 
         licenseHistoryService.recordLicenseChange(license, user, "Продлена", "Лицензия успешно продлена");
+
         Ticket ticket = new Ticket();
         ticket = ticket.generateTicket(license, device, user.getId());
 

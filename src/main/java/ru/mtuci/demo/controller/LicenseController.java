@@ -67,9 +67,9 @@ public class LicenseController {
     }
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
-    public ResponseEntity<License> getLicenseById(@PathVariable Long id) {
-        License license = licenseService.getById(id);
-        return ResponseEntity.ok(license);
+    public ResponseEntity<LicenseResponse> getLicenseById(@PathVariable Long id) {
+        LicenseResponse response = licenseService.getById(id);
+        return ResponseEntity.ok(response);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
