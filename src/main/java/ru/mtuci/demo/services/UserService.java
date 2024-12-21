@@ -13,7 +13,7 @@ public interface UserService {
     void add(User user);
     User getById(Long id);
     void deleteUserByName(String name);
-    ResponseEntity<UserResponse> getByName(String name);
+    UserResponse getByName(String name);
     User getByLogin(String login);
     User getUserByJwt(HttpServletRequest httpRequest);
     void create(String login, String name, String password) throws UserAlreadyCreateException;

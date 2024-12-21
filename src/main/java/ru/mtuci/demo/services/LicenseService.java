@@ -18,16 +18,16 @@ public interface LicenseService {
 
     List<LicenseResponse> getAll();
 
-    ResponseEntity<LicenseResponse> createLicense(CreateLicensesRequest request);
+    LicenseResponse createLicense(CreateLicensesRequest request);
 
-    ResponseEntity<LicenseResponse> getById(Long id);
+    License getById(Long id);
 
     Ticket activateLicense(ActivationRequest request, User user);
 
-    License getActiveLicensesForDevice(Device device, User user);
+    List<License> getActiveLicensesForDevice(Device device, User user);
     void blockLicense(Long id);
     void unblockLicense(Long id);
-    ResponseEntity<LicenseResponse> getByKey(String key);
+    LicenseResponse getByKey(String key);
 
     Ticket renewLicense(RenewalRequest request, User user);
 }

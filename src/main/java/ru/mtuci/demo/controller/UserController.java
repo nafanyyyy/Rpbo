@@ -23,9 +23,10 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/name/{name}")
-    public ResponseEntity<UserResponse> getByName(@PathVariable("name") String name) {
-        return userService.getByName(name);
+    @GetMapping("/{name}")
+    public ResponseEntity<UserResponse> getUserByName(@PathVariable String name) {
+        UserResponse response = userService.getByName(name);
+        return ResponseEntity.ok(response);
     }
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{name}")

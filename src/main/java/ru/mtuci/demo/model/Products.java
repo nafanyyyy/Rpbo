@@ -25,7 +25,5 @@ public final class Products {
 
     @Column(name = "isBlocked")
     private Boolean isBlocked;
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("product")
-    private List<License> license;
+
 }

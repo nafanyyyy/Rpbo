@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.mtuci.demo.Response.LicenseTypeResponse;
 import ru.mtuci.demo.exception.DuplicateResourceException;
 import ru.mtuci.demo.model.LicenseType;
-import ru.mtuci.demo.repo.LicenseTypeRepository; // Предполагаю, что у вас есть репозиторий для LicenseType
+import ru.mtuci.demo.repo.LicenseTypeRepository;
 import ru.mtuci.demo.services.LicenseTypeService;
 
 import java.util.List;
@@ -42,7 +42,8 @@ public class LicenseTypeServiceImpl implements LicenseTypeService {
                         licenseType.getId(),
                         licenseType.getName(),
                         licenseType.getDefaultDuration(),
-                        licenseType.getDescription()
+                        licenseType.getDescription(),
+                        licenseType.getActivationLimit()
                 ))
                 .toList();
     }

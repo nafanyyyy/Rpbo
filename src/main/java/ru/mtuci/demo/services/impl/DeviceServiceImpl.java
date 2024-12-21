@@ -19,13 +19,15 @@ public class DeviceServiceImpl implements DeviceService {
         return deviceRepository.findByMac(deviceInfo)
                 .orElseThrow(() -> new DeviceNotFoundException("Для данного Устройства не найдена лицензия"));
     }
-        public Device registerOrUpdateDevice(String deviceInfo, User user,String Name) {
-
-        Device device = deviceRepository.findByMac(deviceInfo)
-                .orElse(new Device());
+    public Device registerOrUpdateDevice(String deviceInfo, User user, String name) {
+        Device device = deviceRepository.findByMac(deviceInfo).orElse(new Device());
+        if (device.getId() != null && !device.getUser().getId().equals(user.getId())) {
+            throw new IllegalStateException("Устройство уже привязано к другому пользователю.");
+        }
         device.setMac(deviceInfo);
         device.setUser(user);
-        device.setName(Name);
+        device.setName(name);
+
         return deviceRepository.save(device);
     }
 }

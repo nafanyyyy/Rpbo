@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService {
                 ))
                 .toList();
     }
+
     @Override
     public void add(User user) {
         if (userRepository.findByName(user.getName()).isEmpty()) {
@@ -51,29 +52,29 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id).orElse(new User());
     }
 
-    public ResponseEntity<UserResponse> getByName(String name) {
+    @Override
+    public User getByLogin(String login) {
+        return userRepository.findByLogin(login).orElse(new User());
+    }
+
+    public UserResponse getByName(String name) {
         User user = userRepository.findByName(name)
                 .orElseThrow(() -> new UserException("Пользователь с именем " + name + " не найден"));
 
-        UserResponse response = new UserResponse(
+        return new UserResponse(
                 user.getId(),
                 user.getName(),
                 user.getLogin(),
                 user.getRole().name()
         );
-
-        return ResponseEntity.ok(response);
     }
 
-    @Override
-    public User getByLogin(String login)  {
-        return userRepository.findByLogin(login).orElse(new User());
-    }
     public void deleteUserByName(String name) {
         User user = userRepository.findByName(name)
                 .orElseThrow(() -> new UserException("Пользователь с именем " + name + " не найден"));
         userRepository.delete(user);
     }
+
     @Override
     public User getUserByJwt(HttpServletRequest httpRequest) {
         String authorizationHeader = httpRequest.getHeader("Authorization");
@@ -81,10 +82,11 @@ public class UserServiceImpl implements UserService {
             throw new UserException("JWT токен отсутствует или некорректен");
         }
 
-        String jwt = authorizationHeader.substring(7); // Убираем "Bearer "
+        String jwt = authorizationHeader.substring(7);
         String username = jwtTokenProvider.getUsername(jwt);
         return getByLogin(username);
     }
+
     @Override
     public void create(String login, String name, String password) throws UserAlreadyCreateException {
         if (userRepository.findByLogin(login).isPresent()) throw new UserAlreadyCreateException(login);

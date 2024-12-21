@@ -6,7 +6,7 @@ import ru.mtuci.demo.Request.ProductRequest;
 import ru.mtuci.demo.Response.ProductResponse;
 import ru.mtuci.demo.exception.ProductException;
 import ru.mtuci.demo.model.Products;
-import ru.mtuci.demo.repo.ProductRepository;  // Пример, зависит от того, где хранятся продукты
+import ru.mtuci.demo.repo.ProductRepository;
 import ru.mtuci.demo.services.ProductService;
 
 import java.util.List;

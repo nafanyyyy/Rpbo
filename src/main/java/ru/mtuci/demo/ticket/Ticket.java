@@ -1,17 +1,22 @@
 package ru.mtuci.demo.ticket;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Value;
 import ru.mtuci.demo.model.Device;
 import ru.mtuci.demo.model.License;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 
 @NoArgsConstructor
 @Data
 public class Ticket {
-
     private Date serverDate;
     private Long ticketLifetime;
     private Date activationDate;
@@ -36,7 +41,16 @@ public class Ticket {
         return ticket;
     }
     private String generateDigitalSignature(License license, Device device, Long userId) {
-        String rawData = license.getKey() + device.getId() + userId + license.getEnding_date();
-        return UUID.nameUUIDFromBytes(rawData.getBytes()).toString();
+        try {
+            String rawData = license.getKey() + device.getId() + userId + license.getEnding_date();
+
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+
+            byte[] hash = messageDigest.digest(rawData.getBytes(StandardCharsets.UTF_8));
+
+            return Base64.getEncoder().encodeToString(hash);
+        } catch (Exception e) {
+            throw new RuntimeException("Ошибка при генерации цифровой подписи", e);
+        }
     }
 }

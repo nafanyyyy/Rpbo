@@ -29,7 +29,4 @@ public class Device {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @OneToMany(mappedBy = "device", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("device")
-    private List<DeviceLicense> deviceLicenses;
 }

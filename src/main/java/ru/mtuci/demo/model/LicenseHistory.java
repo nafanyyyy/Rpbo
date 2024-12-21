@@ -1,6 +1,7 @@
 package ru.mtuci.demo.model;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class LicenseHistory {
 
     @ManyToOne
     @JoinColumn(name = "license_id", referencedColumnName = "license_id")
+    @JsonBackReference
     private License license;
 
     @ManyToOne

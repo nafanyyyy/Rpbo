@@ -9,9 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.mtuci.demo.Request.CreateLicensesRequest;
 import ru.mtuci.demo.Request.RenewalRequest;
-import ru.mtuci.demo.exception.ActivationException;
 import ru.mtuci.demo.exception.DeviceNotFoundException;
-import ru.mtuci.demo.exception.LicenseNotFoundException;
 import ru.mtuci.demo.model.Device;
 import ru.mtuci.demo.model.License;
 import ru.mtuci.demo.model.User;
@@ -20,6 +18,8 @@ import ru.mtuci.demo.services.LicenseService;
 import ru.mtuci.demo.services.UserService;
 import ru.mtuci.demo.Response.LicenseResponse;
 import ru.mtuci.demo.ticket.Ticket;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -36,9 +36,9 @@ public class LicenseController {
     }
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
-    public ResponseEntity<LicenseResponse>  createLicense(
-            @RequestBody CreateLicensesRequest request) {
-        return licenseService.createLicense(request);
+    public ResponseEntity<LicenseResponse> createLicense(@RequestBody CreateLicensesRequest request) {
+        LicenseResponse response = licenseService.createLicense(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @PostMapping("/renew")
     public ResponseEntity<?> renewLicense(@RequestBody RenewalRequest request, HttpServletRequest httpRequest) {
@@ -51,23 +51,32 @@ public class LicenseController {
         User authenticatedUser = getAuthenticatedUser(httpRequest);
         Device device = deviceRepository.findByMac(deviceInfo)
                 .orElseThrow(() -> new DeviceNotFoundException("Устройство не найдено"));
-        License activeLicensesForDevice = licenseService.getActiveLicensesForDevice(device, authenticatedUser);
-        Ticket ticket = new Ticket();
-        ticket = ticket.generateTicket(activeLicensesForDevice, device, getAuthenticatedUser(httpRequest).getId());
-        return ResponseEntity.ok(ticket);
+
+        List<License> activeLicensesForDevice = licenseService.getActiveLicensesForDevice(device, authenticatedUser);
+        List<Ticket> tickets = new ArrayList<>();
+        for (License activeLicense : activeLicensesForDevice) {
+            Ticket ticket = new Ticket();
+            ticket = ticket.generateTicket(activeLicense, device, authenticatedUser.getId());
+            tickets.add(ticket);
+        }
+
+        return ResponseEntity.ok(tickets);
     }
     private User getAuthenticatedUser(HttpServletRequest httpRequest) {
         return userService.getUserByJwt(httpRequest);
     }
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
-    public ResponseEntity<LicenseResponse> getById(@PathVariable("id") Long id) {
-        return licenseService.getById(id);
+    public ResponseEntity<License> getLicenseById(@PathVariable Long id) {
+        License license = licenseService.getById(id);
+        return ResponseEntity.ok(license);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/key/{key}")
-    public ResponseEntity<LicenseResponse> getByKey(@PathVariable("key") String key) {
-        return licenseService.getByKey(key);
+    public ResponseEntity<LicenseResponse> getLicenseByKey(@PathVariable String key) {
+        LicenseResponse response = licenseService.getByKey(key);
+        return ResponseEntity.ok(response);
     }
     @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/block/{id}")

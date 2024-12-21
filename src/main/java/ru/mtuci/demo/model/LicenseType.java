@@ -29,8 +29,6 @@ public class LicenseType {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "licenseType", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties("licenseType")
-    private List<License> license;
-
+    @Column(name = "activation_limit")
+    private Integer activationLimit;
 }
