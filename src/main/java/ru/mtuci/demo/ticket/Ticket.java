@@ -30,7 +30,7 @@ public class Ticket {
         Ticket ticket = new Ticket();
 
         ticket.setServerDate(new Date());
-        ticket.setTicketLifetime(license.getDuration() * 24L * 60 * 60 * 1000);
+        ticket.setTicketLifetime(24L * 60 * 60 * 1000);
         ticket.setActivationDate(java.sql.Date.valueOf(license.getFirst_date_activate()));
         ticket.setExpirationDate(java.sql.Date.valueOf(license.getEnding_date()));
         ticket.setUserId(UUID.nameUUIDFromBytes(userId.toString().getBytes()));

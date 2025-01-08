@@ -47,6 +47,6 @@ public class AuthController {
     @PostMapping("/reg")
     public ResponseEntity<?> register(@RequestBody RegRequest request) {
             userService.create(request.getLogin(), request.getName(), request.getPassword());
-            return ResponseEntity.ok("Successful");
+            return ResponseEntity.ok("Пользователь успешно зарегестрирован");
     }
 }

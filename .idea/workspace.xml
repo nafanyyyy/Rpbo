@@ -6,19 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4e49c2cb-89dd-473b-a2c9-6e868b615517" name="Changes" comment="FINAL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/LicenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/LicenseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/repo/DeviceLicenseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/repo/DeviceLicenseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/LicenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/LicenseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/LicenseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/LicenseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/LicenseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/LicenseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/LicenseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/LicenseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/LicenseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/LicenseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/ticket/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/mtuci/demo/ticket/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/services/impl/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/ticket/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/mtuci/demo/ticket/Ticket.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +108,8 @@
       <workItem from="1734424608704" duration="4350000" />
       <workItem from="1734596281348" duration="2880000" />
       <workItem from="1734654557345" duration="3014000" />
-      <workItem from="1734677701797" duration="30419000" />
+      <workItem from="1734677701797" duration="35301000" />
+      <workItem from="1736338859188" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="task5">
       <option name="closed" value="true" />
@@ -181,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734768953684</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="FINAL">
+      <option name="closed" value="true" />
+      <created>1734772870298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734772870298</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +191,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
